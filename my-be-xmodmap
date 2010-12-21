@@ -1,0 +1,11 @@
+! U+27E8 ⟨ on alt-gr 5/(
+keysym parenleft = parenleft 5 parenleft 5 0x010027e8
+
+! U+27E9 ⟩ on alt-gr °/)
+keysym parenright = parenright degree parenright degree 0x010027e9
+
+! U+2423 ␣ on alt-gr _/-
+keysym minus = minus underscore minus underscore 0x01002423
+
+! U+03BB λ on alt-gr l/L
+keysym l = l L l L 0x010003bb
