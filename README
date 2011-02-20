@@ -1,0 +1,8 @@
+Various config files, nothing to see really.
+
+In .bashrc:
+  source ~/env/bash/bashrc
+
+In .vimrc:
+  source ~/env/vim/vimrc
+
