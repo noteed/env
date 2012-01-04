@@ -1,0 +1,6 @@
+# Copy this file as ~/.bashrc
+
+# Check for an interactive session
+[ -z "$PS1" ] && return
+
+source ~/env/bash/bashrc

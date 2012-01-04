@@ -9,3 +9,10 @@ keysym minus = minus underscore minus underscore 0x01002423
 
 ! U+03BB λ on alt-gr l/L
 keysym l = l L l L 0x010003bb
+
+! capslock is another control key
+clear lock
+add control = Caps_Lock
+
+!clear mod3
+!add mod3 = Hyper_L

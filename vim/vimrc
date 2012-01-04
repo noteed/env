@@ -1,8 +1,68 @@
+set t_Co=256
 syntax enable
 set tabstop=4
 set shiftwidth=2
 set expandtab
+set number
+
+function! GitBranch()
+    let branch = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
+    if branch != ''
+        return 'git: ' . substitute(branch, '\n', '', 'g')
+    en
+    return ''
+endfunction
+
+"set statusline=%F%M%r%h%w%=[%{GitBranch()}]\ %l,%v\ %p%%\ %{&ff}\ %LL\ %{strftime('%Y/%m/%e\ %Hh%M')}
+set statusline=%F%M%r%h%w%=%l,%v\ %p%%\ %{&ff}\ %LL\ %{strftime('%Y/%m/%e\ %Hh%M')}
+set laststatus=2
+set wildmenu
+set wildmode=longest:full
+set showcmd
 
 " tab navigation
 nmap <C-j> :tabprev<CR>
 nmap <C-k> :tabnext<CR>
+
+
+function! ToggleBackground()
+  if (g:solarized_style=="dark")
+    let g:solarized_style="light"
+    colorscheme solarized
+  else
+    let g:solarized_style="dark"
+    colorscheme solarized
+  endif
+endfunction
+command! Togbg call ToggleBackground()
+nnoremap <F5> :call ToggleBackground()<CR>
+inoremap <F5> <ESC>:call ToggleBackground()<CR>a
+vnoremap <F5> <ESC>:call ToggleBackground()<CR>
+
+" ignore the F5 above
+nmap <C-l> :call system("screen -S main -X at agura-shell stuff 'echo hello\n'")<CR>
+nmap <C-l> :call system("screen -S main -X at agura-shell stuff 'sh go.sh\n'")<CR>
+"nmap <C-l> :!sh go.sh<CR>
+nmap <C-c> :call system("screen -S main -X at agura-shell stuff 'cabal install\n'")<CR>
+
+" ------------------------------------------------
+" OPTIONS
+" ------------------------------------------------
+" 
+" Set these prior to calling the colorscheme.
+"
+" option name               default     optional
+" ------------------------------------------------
+" g:solarized_termcolors=   256     |   16
+let g:solarized_termcolors=16
+" g:solarized_termtrans =   0       |   1
+" g:solarized_degrade   =   0       |   1
+" g:solarized_bold      =   1       |   0
+" g:solarized_underline =   1       |   0
+" g:solarized_italic    =   1       |   0
+" g:solarized_style     =   "dark"  |   "light"
+" g:solarized_contrast  =   "normal"|   "high" or "low"
+
+" solarized color scheme
+set background=dark
+colorscheme solarized

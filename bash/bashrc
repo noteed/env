@@ -1,0 +1,14 @@
+PS1='[\u@\h \W]\$ '
+
+PATH=~/env/bin:$PATH
+PATH=~/.cabal/bin:$PATH
+
+export HISTCONTROL=ignorespace:erasedups
+
+alias ls='ls --color=auto'
+alias vi='vim'
+
+alias hinstall='cabal install'
+
+# start ssh-agent if necessary
+source ~/env/bash/init-ssh-agent
