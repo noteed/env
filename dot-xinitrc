@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# Copy this file to ~/.xinitrc
+#
+# Executed by startx
+
+setxkbmap be
+setxkbmap -option terminate:ctrl_alt_bksp
+xbindkeys
+xmodmap env/my-be-xmodmap
+exec xmonad
