@@ -8,4 +8,5 @@ setxkbmap be
 setxkbmap -option terminate:ctrl_alt_bksp
 xbindkeys
 xmodmap env/my-be-xmodmap
+xrdb merge env/Xresources-light
 exec xmonad
